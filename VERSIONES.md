@@ -18,3 +18,16 @@
     "type": "module",//<------- Para poder utilizar import o export o te saldra un error al ejecutar 
 }
 ```
+
+## Version 1.0.1
+- Se instalo las dependencias de mysql2 y sequelize y cors
+- Se creo las carpetas "database" y "models"
+- 
+
+### Complicaciones 
+- al parecer no se puede utilizar path con los import como en este caso
+```javascript
+import indexRoutes from path.join('.','routes','index.js') ;  //tira error
+
+```
+tal parece que en node se usa mas require que import/export asi que queda consultar a profesores,y al no poder avanzar me vere obligado a usar require que creo que es lo correcto
