@@ -1,0 +1,15 @@
+{
+  "name": "allintegrado",
+  "version": "1.0.0",
+  "description": "Proyecto de Node con todo lo visto hasta ahora sobre un e-lerning",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "Node",
+    "express"
+  ],
+  "author": "Kevin Aviles Bejarano",
+  "license": "ISC"
+}
