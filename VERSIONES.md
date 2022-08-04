@@ -22,12 +22,30 @@
 ## Version 1.0.1
 - Se instalo las dependencias de mysql2 y sequelize y cors
 - Se creo las carpetas "database" y "models"
-- 
-
+- Se creo la base de datos en Mysql Workbench + una tabla "users"
+- En el archivo "db.js" de la carpeta database se configuro la base de datos con sequelize.
+- En el archivo "User.js" de la carpeta models se configuro la tabla users con sequelize.
+- En UserController.js se implemento sequelize para el registro de un usuario
 ### Complicaciones 
+
+#### Complicacion 1
 - al parecer no se puede utilizar path con los import como en este caso
 ```javascript
 import indexRoutes from path.join('.','routes','index.js') ;  //tira error
 
 ```
 tal parece que en node se usa mas require que import/export asi que queda consultar a profesores,y al no poder avanzar me vere obligado a usar require que creo que es lo correcto
+
+#### Complicacion 2
+- es necesario la programacion estructurada, sobretodo para la app.js ya que el incombeniente que tuve fue :
+```javascript
+
+app.use(cors())
+app.use(express.urlencoded({extended:false}));
+app.use(express.json());
+//estas tres lienas de codigo tienen que estar antes de llamar a las rutas o sinos no van a funcionar
+
+app.use('/',indexRoutes);
+app.use('/user',userRoutes);
+
+```
