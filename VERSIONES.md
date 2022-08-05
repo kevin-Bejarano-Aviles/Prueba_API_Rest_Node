@@ -20,12 +20,17 @@
 ```
 
 ## Version 1.0.1
-- Se instalo las dependencias de mysql2 y sequelize y cors
+- Se instalo las dependencias de mysql2, sequelize y cors
 - Se creo las carpetas "database" y "models"
 - Se creo la base de datos en Mysql Workbench + una tabla "users"
 - En el archivo "db.js" de la carpeta database se configuro la base de datos con sequelize.
 - En el archivo "User.js" de la carpeta models se configuro la tabla users con sequelize.
 - En UserController.js se implemento sequelize para el registro de un usuario
+- Se implemento el modulo bcrypt y se encriptaron las contraseñas
+- Se instalo el modulo ejs
+- Se implementaron vistas dinamicas con el motor de vistas ejs
+- Se logro obetener la vista con la funcionalidas del CRUD(Create,Read,Update,Delete).
+- La parte back end ya no parece mas una api (cosa a preguntar)
 ### Complicaciones 
 
 #### Complicacion 1
@@ -47,5 +52,12 @@ app.use(express.json());
 
 app.use('/',indexRoutes);
 app.use('/user',userRoutes);
+
+```
+### Complicacion 3 
+- Se necesitan un paquete para manegar los metodos HTTP Put y Delete 
+```javascript
+const methodOverride = require('method-override');//para poder hacer put o delete
+app.use(methodOverride('_method'));
 
 ```

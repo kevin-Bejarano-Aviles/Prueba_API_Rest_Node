@@ -22,4 +22,4 @@
 - Utilizar path
 - Tener contraseñas encriptadas
 - Tener los metodos get, post, put y detele funcionando con la base de datos en la ruta de user
-- ESTADO : __INCOMPLETO
+- ESTADO : __Completo

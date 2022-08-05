@@ -1,0 +1,22 @@
+<%- include('partials/head')  %> 
+<body>
+    <%- include('partials/header')  %> 
+    <h1>Lista de usuarios</h1>
+    <% users.forEach(user => { %>
+        <br>
+        <p>Nombre de usuario: <%= user.userName %> </p>
+        <p>Nombres: <%= user.names %> </p>
+        <p>Apellidos: <%= user.surnames %> </p>
+        <p>email: <%= user.email %> </p>
+        <a href="/user/edit/<%= user.id %> ">Editar usuario</a>
+        <br>
+
+        <form action="/user/deleteUser/<%= user.id %>?_method=delete " method="post">
+            <button type="submit">Eliminar usuario</button>
+        </form>
+        
+        <br>
+    <% }) %>
+    <%- include('partials/footer')  %> 
+</body>
+</html>

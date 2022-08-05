@@ -1,0 +1,23 @@
+<%- include('partials/head')  %> 
+<body>
+    <%- include('partials/header')  %> 
+    <h1>edit del usuario <%= user.userName %> </h1>
+   
+    <form action="/user/edit/<%= user.id %>?_method=put" method="post">
+        <label for="">Username</label>
+        <input type="text" name="userName" id="" value="<%= user.userName %>" >
+        <br>
+        <label for="">names</label>
+        <input type="text" name="names" id="" value="<%= user.names %>" >
+        <br>
+        <label for="">surnames</label>
+        <input type="text" name="surnames" id="" value="<%= user.surnames %>" >
+        <br>
+        <label for="">email</label>
+        <input type="email" name="email" id="" value="<%= user.email %>" >
+        <br>
+        <button type="submit">Enviar</button>
+    </form>
+    <%- include('partials/footer')  %> 
+</body>
+</html>
