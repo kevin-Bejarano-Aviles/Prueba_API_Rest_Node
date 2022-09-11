@@ -2,7 +2,7 @@
 <body>
     <%- include('partials/header')  %> 
     <h1>register</h1>
-    <form action="/user/register" method="post">
+    <form action="/user/register" method="post" enctype="multipart/form-data">
         <label for="">Nombre de usuario</label>
         <input type="text" name="userName" id="">
         <br>
@@ -18,8 +18,24 @@
         <label for="">Password</label>
         <input type="password" name="pass" id="">
         <br>
+        <label for="">Repita password</label>
+        <input type="password" name="pass2" id="">
+        <br>
+        <label for="">Foto de perfil</label>
+        <input type="file" name="avatar">
+        <br>
         <button type="submit">Enviar</button>
     </form>
+     
+    <% if (typeof errors != 'undefined') { %><!-- aca preguntamos si la variable message es igual a undefined, si es asi no pasa nada, si es distinta imprime el mensaje -->
+        <ul>
+            <% errors.forEach(error => { %>
+                <li><%= error.msg %> </li> 
+            <% }) %>
+        </ul>
+       
+        
+    <% } %>
     <%- include('partials/footer')  %> 
 </body>
 </html>

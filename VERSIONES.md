@@ -46,8 +46,8 @@ tal parece que en node se usa mas require que import/export asi que queda consul
 ```javascript
 
 app.use(cors())
-app.use(express.urlencoded({extended:false}));
-app.use(express.json());
+app.use(express.urlencoded({extended:false}));//envio de formularios body
+app.use(express.json());//envio de formularios con json
 //estas tres lienas de codigo tienen que estar antes de llamar a las rutas o sinos no van a funcionar
 
 app.use('/',indexRoutes);
@@ -60,4 +60,14 @@ app.use('/user',userRoutes);
 const methodOverride = require('method-override');//para poder hacer put o delete
 app.use(methodOverride('_method'));
 
+```
+Asi se usaria en la vista ejs tanto para editar como para eliminar usando el metodo post pero en el action poner que se usara el metodo put o delete
+```html
+<!-- editar  -->
+ <form action="/user/edit/<%= user.id %>?_method=put" method="post">
+ 
+ <!-- eliminar -->
+ <form action="/user/deleteUser/<%= user.id %>?_method=delete " method="post">
+            <button type="submit">Eliminar usuario</button>
+        </form>
 ```

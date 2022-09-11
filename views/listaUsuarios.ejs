@@ -2,13 +2,15 @@
 <body>
     <%- include('partials/header')  %> 
     <h1>Lista de usuarios</h1>
-    <% users.forEach(user => { %>
+    <h2><a href="/user/logOut">Cerrar session</a></h2>
+    <% usuarios.forEach(user => { %>
         <br>
         <p>Nombre de usuario: <%= user.userName %> </p>
         <p>Nombres: <%= user.names %> </p>
         <p>Apellidos: <%= user.surnames %> </p>
         <p>email: <%= user.email %> </p>
         <a href="/user/edit/<%= user.id %> ">Editar usuario</a>
+        <img src="/img/users/<%= user.avatar %>" alt="imagen del usuario" style="width:100px ;height: 100px;">
         <br>
 
         <form action="/user/deleteUser/<%= user.id %>?_method=delete " method="post">

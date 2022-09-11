@@ -11,8 +11,13 @@
         <br>
         <button type="submit">Iniciar Sesion</button>
     </form>
-    <% if (error) { %>
-        <span><%= message %> </span>
+    <% if (typeof errors != 'undefined') { %>
+        <ul>
+            <% errors.forEach(error => { %>
+             <li><%= error.msg %> </li>
+            <% }) %>
+        </ul>
+        
     <% } %>
     <%- include('partials/footer')  %> 
 </body>

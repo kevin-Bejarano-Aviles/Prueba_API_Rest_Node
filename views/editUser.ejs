@@ -2,7 +2,7 @@
 <body>
     <%- include('partials/header')  %> 
     <h1>edit del usuario <%= user.userName %> </h1>
-   
+    <h2><a href="/user/logOut">Cerrar session</a></h2>
     <form action="/user/edit/<%= user.id %>?_method=put" method="post">
         <label for="">Username</label>
         <input type="text" name="userName" id="" value="<%= user.userName %>" >
@@ -16,8 +16,18 @@
         <label for="">email</label>
         <input type="email" name="email" id="" value="<%= user.email %>" >
         <br>
+        
         <button type="submit">Enviar</button>
     </form>
+    <% if (typeof errors != 'undefined') { %><!-- aca preguntamos si la variable message es igual a undefined, si es asi no pasa nada, si es distinta imprime el mensaje -->
+        <ul>
+            <% errors.forEach(error => { %>
+                <li><%= error.msg %> </li> 
+            <% }) %>
+        </ul>
+       
+        
+    <% } %>
     <%- include('partials/footer')  %> 
 </body>
 </html>

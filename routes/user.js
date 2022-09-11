@@ -1,23 +1,21 @@
 const express = require("express"); //importamos el modulo de express
-const path = require('path');
-const { userRegister, processRegister, userLogin, processLogin, userEdit, processEditUser, userDeleteProcess, allUsers } = require('../controllers/UserController');
-const router = express.Router();//le asignamos a la constante router el metodo express.Router() para poder usar los metodos HTTP
-
+const router = express.Router();
+const { userRegister, userLogin, userProfile, editUser, editPassUser, userLogOut, deleteUser } = require('../controllers/userController');
 
 //Registro del usuario 
-router.get('/register',userRegister);
-router.post('/register',processRegister);
+router.post('/register',userRegister);
+//logueo de usuario
+router.post('/login',userLogin);
+//ver Perfil
+router.get('/:id',userProfile);
+//Editar Perfil
+router.put('/edit/:id',editUser);
+//editar password
+router.put('/editPass/:id',editPassUser);
+//logOut
+router.get('/logOut',userLogOut);
+//Delete user
+router.delete('/:id',deleteUser);
 
-//Inicio de sesion del usuario
-router.get('/login',userLogin);
-router.post('/login',processLogin);//process
-//edicion del usuario
-router.get('/edit/:id',userEdit);
-router.put('/edit/:id',processEditUser);
-
-//muestra de usuarios 
-router.get('/allUsers',allUsers);
-//eliminacion de usuario(su cuenta)
-router.delete('/deleteUser/:id',userDeleteProcess)
 
 module.exports = router;//exportamos la constante router
